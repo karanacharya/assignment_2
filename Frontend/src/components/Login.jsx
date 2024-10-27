@@ -22,7 +22,7 @@ const Login = () => {
   const handleLogin = async (e) => {  
     e.preventDefault();
     try {
-      const response = await axios.post('https://assignment-2-three-olive.vercel.app/api/auth/v1/login', {
+      const response = await axios.post('https://assignment-2-two-omega.vercel.app/api/auth/v1/login', {
         username,
         password
       });
