@@ -6,10 +6,11 @@ import auth from "./routes/auth.routes.js";
 import user from "./routes/user.routes.js";
 // *********** All-Routes *************
 
+
 import cookieParser from "cookie-parser";
 const app = express();
 // Use cors middleware
-app.use(cors());
+// app.use(cors());
 
 app.use(
   cors({
