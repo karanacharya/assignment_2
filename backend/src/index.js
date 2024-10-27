@@ -51,7 +51,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(7000, async () => {
-  console.log("Server is running on port 7000");
+// Use the PORT provided by the environment, or fallback to 7000 for local development
+const PORT = process.env.PORT || 7000;
+
+app.listen(PORT, async () => {
+  console.log(`Server is running on port ${PORT}`);
   await connectDb();
 });
