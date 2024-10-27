@@ -50,7 +50,7 @@ const Navbar = () => {
        try {
          const token = localStorage.getItem('token')
           if(token){
-            const res = await axios.post('http://localhost:7000/api/user/v1/get-users-info',{},{
+            const res = await axios.post('https://assignment-2-three-olive.vercel.app/api/user/v1/get-users-info',{},{
               headers:{
                 'Authorization':token
               }

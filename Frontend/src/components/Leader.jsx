@@ -12,7 +12,7 @@ const Leaderboard = () => {
     const fetchLeaderboard = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:7000/api/user/v1/get-users', {
+        const response = await axios.get('https://assignment-2-three-olive.vercel.app/api/user/v1/get-users', {
           headers: {
             'Authorization': token
           }
@@ -30,7 +30,7 @@ const Leaderboard = () => {
   const handleUserClick = async (username) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:7000/api/user/v1/your-history', { username }, {
+      const response = await axios.post('https://assignment-2-three-olive.vercel.app/api/user/v1/your-history', { username }, {
         headers: {
           'Authorization': token,
           'Content-Type': 'application/json'
