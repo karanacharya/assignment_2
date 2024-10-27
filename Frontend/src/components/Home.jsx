@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
- const host = "https://assignment-2-three-olive.vercel.app/"
+ const host = "https://assignment-2-three-olive.vercel.app"
 // https://assignment-2-three-olive.vercel.app/
 // api/user/v1/get-users-info
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
       try {
         const token = localStorage.getItem('token');
         if (token) {
-          const response = await axios.post(`${host}api/user/v1/get-users-info`, {}, {
+          const response = await axios.post(`${host}/api/user/v1/get-users-info`, {}, {
             headers: {
               'Authorization': token
             }
@@ -39,7 +39,7 @@ const Home = () => {
       const fetchFriends = async () => {
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`${host}api/user/v1/get-users`, {
+          const response = await axios.get(`${host}/api/user/v1/get-users`, {
             headers: {
               'Authorization': token
             }
@@ -57,7 +57,7 @@ const Home = () => {
   const handleFriendClick = async (username) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.patch(`${host}api/user/v1/claim-points`, { username }, {
+      const response = await axios.patch(`${host}/api/user/v1/claim-points`, { username }, {
         headers: {
           'Authorization': token,
           'Content-Type': 'application/json'
