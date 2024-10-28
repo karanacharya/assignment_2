@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import {REACT_APP_DATABASE_URL} from '../../'
 
 
- const host = "https://assignment-2-three-olive.vercel.app"
+
+const host = "http://localhost:7000";
+
+//  const host = REACT_APP_DATABASE_URL;
 // https://assignment-2-three-olive.vercel.app/
 // api/user/v1/get-users-info
 const Home = () => {

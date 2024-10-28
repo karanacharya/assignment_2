@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const host = "http://localhost:7000/";
+
+
+// const host = REACT_APP_DATABASE_URL;
 
 const Register = () => {
   const [userData, setUserData] = useState({
@@ -17,7 +21,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://assignment-2-three-olive.vercel.app/api/auth/v1/register", userData);
+      const res = await axios.post(`${host}/api/auth/v1/register`, userData);
       console.log(res);
       
       navigate("/login");

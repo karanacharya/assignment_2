@@ -10,7 +10,7 @@ import user from "./routes/user.routes.js";
 import cookieParser from "cookie-parser";
 const app = express();
 // Use cors middleware
-// app.use(cors());
+app.use(cors());
 
 app.use(
   cors({
@@ -36,6 +36,7 @@ app.use("/api/user/v1", user);
 // for wrong apis
 app.use((req, res) => {
   res.status(404).json({
+
     success: false,
     message: "Route not found. Please check the URL and try again.",
   });
@@ -58,3 +59,7 @@ app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
   await connectDb();
 });
+
+
+export default app;
+

@@ -4,6 +4,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+// import { REACT_APP_DATABASE_URL } from '../.env';
+
+const host = "http://localhost:7000";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +53,7 @@ const Navbar = () => {
        try {
          const token = localStorage.getItem('token')
           if(token){
-            const res = await axios.post('https://assignment-2-three-olive.vercel.app/api/user/v1/get-users-info',{},{
+            const res = await axios.post(`${host}/api/user/v1/get-users-info`,{},{
               headers:{
                 'Authorization':token
               }

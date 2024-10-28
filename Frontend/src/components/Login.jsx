@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import { REACT_APP_DATABASE_URL } from '../.env';
 // import { div } from "framer-motion/client";
 // import AuthContext from "../context/authContext";
 
 
-
+const host = "http://localhost:7000/";
 
 
 
@@ -22,7 +23,7 @@ const Login = () => {
   const handleLogin = async (e) => {  
     e.preventDefault();
     try {
-      const response = await axios.post('https://assignment-2-two-omega.vercel.app/api/auth/v1/login', {
+      const response = await axios.post(`${host}api/auth/v1/login`, {
         username,
         password
       });
