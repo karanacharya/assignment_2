@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 // import AuthContext from "../context/authContext";
 
 
-const host = "http://localhost:7000/";
+
+
+const host = "https://leaderboard-backend-x6ol.onrender.com";
 
 
 
@@ -23,7 +25,7 @@ const Login = () => {
   const handleLogin = async (e) => {  
     e.preventDefault();
     try {
-      const response = await axios.post(`${host}api/auth/v1/login`, {
+      const response = await axios.post(`${host}/api/auth/v1/login`, {
         username,
         password
       });

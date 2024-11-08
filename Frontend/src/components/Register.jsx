@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const host = "http://localhost:7000/";
+const host = "https://leaderboard-backend-x6ol.onrender.com";
 
 
 // const host = REACT_APP_DATABASE_URL;

@@ -1,21 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Modal from './modal'; // Import the Modal component
+import Modal from './modal'; 
+import { useNavigate } from 'react-router-dom';//
+  //  Import the Modal component
 // import { REACT_APP_DATABASE_URL } from '../.env';
 
 
-const host = "http://localhost:7000";
+const host = "https://leaderboard-backend-x6ol.onrender.com";
 
 const Leaderboard = () => {
   const [users, setUsers] = useState([]);
   const [history, setHistory] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const navigate = useNavigate();
+
+
+  
+
+
+ 
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
         const token = localStorage.getItem('token');
+        if (!token) {
+          navigate('/login');
+          return;
+        }
+  
+        
         const response = await axios.get(`${host}/api/user/v1/get-users`, {
           headers: {
             'Authorization': token
@@ -29,7 +44,7 @@ const Leaderboard = () => {
     };
 
     fetchLeaderboard();
-  }, []);
+  }, [navigate]);
 
   const handleUserClick = async (username) => {
     try {

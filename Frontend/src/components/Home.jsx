@@ -1,42 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 // import {REACT_APP_DATABASE_URL} from '../../'
 
 
 
-const host = "http://localhost:7000";
+const host = "https://leaderboard-backend-x6ol.onrender.com";
 
 //  const host = REACT_APP_DATABASE_URL;
 // https://assignment-2-three-olive.vercel.app/
 // api/user/v1/get-users-info
 const Home = () => {
-
+const navigate = useNavigate();
   const [friends, setFriends] = useState([]);
   const [authenticated, setAuthenticated] = useState(false);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (token) {
-          const response = await axios.post(`${host}/api/user/v1/get-users-info`, {}, {
-            headers: {
-              'Authorization': token
-            }
-          });
-          setAuthenticated(true);
-        } else {
-          setAuthenticated(false);
-        }
-      } catch (error) {
-        setError('Authentication failed. Please log in.');
-        console.error('Authentication failed:', error);
-      }
-    };
-
-    checkAuth();
-  }, []);
+ 
 
   useEffect(() => {
     if (authenticated) {
@@ -55,6 +35,9 @@ const Home = () => {
       };
 
       fetchFriends();
+    }
+    else{
+     navigate("/login")
     }
   }, [authenticated]);
 

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 // import { REACT_APP_DATABASE_URL } from '../.env';
 
-const host = "http://localhost:7000";
+const host = "https://leaderboard-backend-x6ol.onrender.com";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
