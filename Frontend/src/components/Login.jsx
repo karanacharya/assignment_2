@@ -32,9 +32,11 @@ const Login = () => {
       localStorage.setItem('token', response.data.token);
       setAuthenticated(true)
       navigate('/home')
+     
     } catch (error) {
       setError('Login failed: ' + error);
       setAuthenticated(false)
+      navigate('/login')
     
   };
 }
@@ -57,6 +59,7 @@ const Login = () => {
             className="border w-full p-2"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            autoComplete="username"
           />
         </div>
         <div className="mb-4">
@@ -66,7 +69,7 @@ const Login = () => {
             className="border w-full p-2"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            valuefdprocessedid="fcy8g8"
+            autoComplete="current-password"
           />
         </div>
         <button

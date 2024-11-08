@@ -18,6 +18,21 @@ const navigate = useNavigate();
 
  
 
+   useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (!token)
+    {
+      navigate("/login")
+      setAuthenticated(false)
+    }
+    else{
+      setAuthenticated(true)
+    }
+   
+     
+   }, []);
+   
+
   useEffect(() => {
     if (authenticated) {
       const fetchFriends = async () => {
@@ -36,9 +51,7 @@ const navigate = useNavigate();
 
       fetchFriends();
     }
-    else{
-     navigate("/login")
-    }
+   
   }, [authenticated]);
 
   const handleFriendClick = async (username) => {
