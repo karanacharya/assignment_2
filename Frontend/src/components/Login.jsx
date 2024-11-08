@@ -31,7 +31,7 @@ const Login = () => {
       });
       localStorage.setItem('token', response.data.token);
       setAuthenticated(true)
-      navigate('/home')
+      navigate('/Home')
      
     } catch (error) {
       setError('Login failed: ' + error);
